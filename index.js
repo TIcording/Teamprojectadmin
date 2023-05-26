@@ -62,7 +62,7 @@ app.put('/api/users/:id', async (req, res) => {
       return res.status(404).json({ message: '사용자를 찾을 수 없습니다.' });
     }
 
-    const hashed = await bcrypt.hash(newPassword, config.bcrypt.saltRound);
+    const hashed = await bcrypt.hash(newPassword, config.bcrypt.saltRounds);
     // 사용자 정보 업데이트
     await db.query('UPDATE able.User_info SET ui_name = ?, ui_hp = ?, ui_userid = ?, ui_password = ? WHERE ui_idx = ?', [newName, newNumber, newUsername, hashed, id]);
 

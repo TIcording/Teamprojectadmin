@@ -100,7 +100,7 @@ export async function me(req, res, next) {
 
 
 function createJwtToken(id) {
-    const token = jwt.sign({ id }, config.jwt.secretKey, { expiresIn: config.jwt.expiresInSec });
+    const token = jwt.sign({ id }, config.jwt.secretkey, { expiresIn: config.jwt.expiresInsec });
     return token;
 }
 
