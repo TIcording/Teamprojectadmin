@@ -14,7 +14,7 @@ export const isAuth = async (req, res, next) => {
     const token = authHeader.split(' ')[1];
 
     try {
-        const decoded = jwt.verify(token, config.jwt.secretKey);
+        const decoded = jwt.verify(token, config.jwt.secretkey);
         console.log(decoded)
         const user = await userRepository.searchUserId(decoded.id);
         console.log(user)
