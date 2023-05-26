@@ -122,7 +122,7 @@ app.put('/api/answer/:id', async (req, res) => {
     }
 
     // 사용자 정보 업데이트
-    await db.query('UPDATE able.User_answer SET ua_answer = ?,mi_name= ?, ua_resolution= ? WHERE ua_idx = ?', [newName, mi_userid, '0', id]);
+    await db.query('UPDATE able.User_answer SET ua_answer = ?,mi_name= ?, ua_resolution= ? WHERE ua_idx = ?', [newName, mi_userid, '1', id]);
 
     // 업데이트된 사용자 정보를 조회합니다.
     const updatedUser = await db.query('SELECT * FROM User_answer WHERE ua_idx = ?', [id]);
